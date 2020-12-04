@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "order_item")
 public class Payment implements Serializable {
 
     @Id

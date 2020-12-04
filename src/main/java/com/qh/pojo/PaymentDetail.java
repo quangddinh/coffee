@@ -17,18 +17,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "payment_detail")
+@Table(name = "order_detail")
 public class PaymentDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @ManyToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "order_id")
     private Payment payment;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
     private String img;
 
     @Column(name = "sum")
