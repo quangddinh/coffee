@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Product</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+        <f:loadBundle var="pMsg" basename="products" />
+    </h:head>
+    <h:body>
+        <h1 class="text-center">#{pMsg['products.admin']}</h1>
+        <h:form >
+            <div class="form-group" >
+                <h:outputLabel value="#{pMsg['products.name']}" />
+                <h:inputText id="txtName" styleClass="form-control"
+                             value="#{productBean.name}"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="#{pMsg['products.description']}" />
+                <h:inputTextarea id="txtDescription" styleClass="form-control"
+                                 value="#{productBean.description}"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="#{pMsg['products.price']}" />
+                <h:inputText id="txtPrice" styleClass="form-control"
+                             value="#{productBean.price}"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="#{pMsg['products.img']}" />
+                <h:inputText id="txtImg" styleClass="form-control"
+                             value="#{productBean.img}"/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="#{pMsg['products.cate']}" />
+                <h:selectOneMenu id="txtCategory" styleClass="form-control"
+                                 value="#{productBean.category}"
+                                 converter="CategoryConverter">
+                    <f:selectItems var="cat" value="#{cateBean.categories}"
+                                   itemLabel="#{cat.name}"
+                                   itemValue="#{cat}"  />
+                </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+                <h:inputHidden value="#{productBean.productId}" />
+                <h:commandButton value="Add product"
+                                 action="#{productBean.addProduct()}"
+                                 styleClass="btn btn-warning" />
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>
+

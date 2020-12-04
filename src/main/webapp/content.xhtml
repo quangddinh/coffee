@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Content</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+        <f:loadBundle var="pMsg" basename="products" />
+    </h:head>
+    <h:body>
+        <c:forEach var="p" items="#{productBean.products}" >
+            <div class="col-md-3" >
+                <figure class="thumbnail text-center">
+                    <h:graphicImage value="#{p.img}" height="100" />
+                    <figcaption>
+                        <h5>#{p.name}</h5>
+                        <div >
+                            <h:form >
+                                <h:commandButton value="#{pMsg['products.cart']}"
+                                                 styleClass="btn btn-warning" >
+                                    <f:ajax listener="#{cartBean.addProductToCart(p.id, p.name, p.price,p.img)}" />
+                                </h:commandButton>
+                                <h:commandLink value="#{pMsg['products.detail']}"
+                                               styleClass="btn btn-info" >
+                                </h:commandLink>
+                            </h:form>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </c:forEach>
+        <h1 class="text-center">
+            <h:link value="Pay" outcome="payment?faces-redirect=true" />
+        </h1>
+    </h:body>
+</html>
+
