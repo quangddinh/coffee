@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Product</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+        <f:loadBundle var="pMsg" basename="products" />
+    </h:head>
+    <h:body>
+        <h1 class="text-center">reserve</h1>
+        <h:form >
+            <div class="form-group" >
+                <h:outputLabel value="Tên" />
+                <h:inputText id="txtNamef" styleClass="form-control"
+                             value=""/>
+            </div>
+            <div class="form-group" >
+                <h:outputLabel value="Số điện thoại" />
+                <h:inputText id="txtPhonef" styleClass="form-control"
+                             value=""/>
+            </div>
+            <div class="form-group" >
+                <h:outputLabel value="Ghi chú" />
+                <h:inputTextarea id="txtDescriptionf" styleClass="form-control"
+                                 value=""/>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Số lượng người" />
+                <h:selectOneMenu id="txtCapicityf" styleClass="form-control"
+                                 value="#{bookingBean.capacity}"
+                                 converter="CapacityConverter">
+                    <f:selectItems var="cat" value="#{capacityBean.capacities}"
+                                   itemLabel="#{cat.capacity}"
+                                   itemValue="#{cat}"  />
+                </h:selectOneMenu>
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>
+

@@ -1,5 +1,6 @@
 package com.mycompany.coffeeshop;
 
+import com.qh.pojo.Capacity;
 import com.qh.pojo.Category;
 import com.qh.pojo.Payment;
 import com.qh.pojo.PaymentDetail;
@@ -33,6 +34,7 @@ public class HibernateUtil {
         configure.addAnnotatedClass(User.class);
         configure.addAnnotatedClass(Payment.class);
         configure.addAnnotatedClass(PaymentDetail.class);
+        configure.addAnnotatedClass(Capacity.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(configure.getProperties()).build();
