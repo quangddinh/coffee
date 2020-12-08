@@ -1,7 +1,11 @@
 package com.qh.bean;
 
 import com.qh.pojo.Capacity;
+import com.qh.pojo.Timetable;
 import com.qh.service.CapacityService;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
@@ -11,12 +15,21 @@ import javax.faces.bean.ManagedBean;
 @RequestScoped
 public class BookingBean {
 
+    public Timetable getTime() {
+        return time;
+    }
+
+    public void setTime(Timetable time) {
+        this.time = time;
+    }
+
     public BookingBean() {
     }
 
     private int bookingId;
     private String name;
     private String phone;
+    private Timetable time;
     private String description;
     private Capacity capacity;
 

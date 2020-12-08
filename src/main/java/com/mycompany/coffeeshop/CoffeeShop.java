@@ -9,7 +9,7 @@ import java.util.List;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 
-public class DemoSaledb {
+public class CoffeeShop {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         System.setOut(new PrintStream(System.out, true, "UTF8"));

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/facelets" >
     <h:head>
         <title>Product</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -14,33 +15,44 @@
         <h1 class="text-center">reserve</h1>
         <h:form >
             <div class="form-group" >
-                <h:outputLabel value="Tên" />
+                <h:outputLabel value="#{pMsg['booking.name']}" />
                 <h:inputText id="txtNamef" styleClass="form-control"
-                             value=""/>
+                             value='#{bookingBean.name}'/>
             </div>
             <div class="form-group" >
-                <h:outputLabel value="Số điện thoại" />
+                <h:outputLabel value="#{pMsg['booking.phone']}" />
                 <h:inputText id="txtPhonef" styleClass="form-control"
-                             value=""/>
+                             value="#{bookingBean.phone}"/>
             </div>
             <div class="form-group" >
-                <h:outputLabel value="Ghi chú" />
+                <h:outputLabel value="#{pMsg['booking.description']}" />
                 <h:inputTextarea id="txtDescriptionf" styleClass="form-control"
-                                 value=""/>
+                                 value="#{bookingBean.description}"/>
             </div>
             <div class="form-group">
-                <h:outputLabel value="Số lượng người" />
+                <h:outputLabel value="#{pMsg['booking.capacity']}" />
                 <h:selectOneMenu id="txtCapicityf" styleClass="form-control"
                                  value="#{bookingBean.capacity}"
-                                 converter="CapacityConverter">
-                    <f:selectItems var="cat" value="#{capacityBean.capacities}"
-                                   itemLabel="#{cat.capacity}"
-                                   itemValue="#{cat}"  />
+                                 converter="CapacityConverter" >
+                    <f:selectItems var="cap" value="#{capacityBean.capacities}"
+                                   itemLabel="#{cap.capacity}"
+                                   itemValue="#{cap}" />
                 </h:selectOneMenu>
             </div>
+
+            <div class="form-group" >
+                <h:outputLabel value="#{pMsg['booking.time']}" />
+                <h:selectOneMenu id="txtTimetablef" styleClass="form-control"
+                                 value="#{bookingBean.time}"
+                                 converter="TimetableConverter" >
+                    <f:selectItems var="time" value="#{capacityBean.timetable}"
+                                   itemLabel="#{time.time}"
+                                   itemValue="#{time}" />
+                </h:selectOneMenu>
+            </div>
+
+
         </h:form>
-
-
     </h:body>
 </html>
 
