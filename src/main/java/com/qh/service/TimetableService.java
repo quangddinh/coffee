@@ -14,10 +14,6 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-/**
- *
- * @author Dinh Quang
- */
 public class TimetableService {
 
     private final static SessionFactory factory = HibernateUtil.getSessionFactory();

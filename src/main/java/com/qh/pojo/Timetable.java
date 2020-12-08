@@ -23,8 +23,8 @@ public class Timetable {
 
     @Override
     public boolean equals(Object obj) {
-        Capacity cap = (Capacity) obj;
-        return this.getId() == cap.getId();
+        Timetable time = (Timetable) obj;
+        return this.getId() == time.getId();
     }
 
     @Override
