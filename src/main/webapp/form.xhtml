@@ -59,14 +59,17 @@
                             showOn="both" pattern="dd.MM.yyyy"/>
                 <div class="form-group">
                     <h:inputHidden value="#{bookingBean.bookingId}" />
-                    <h:commandButton value="Add product"
+                    <h:commandButton value="Booking"
                                      action="#{bookingBean.addBooking()}"
-                                     styleClass="btn btn-warning" />
+                                     styleClass="btn btn-info"
+                                     />
                 </div>
             </div>
-
-
         </h:form>
+        <h2 class="text-center" style="color: blueviolet">
+            <h:link value="Reservation ADMIN" outcome="reservation?faces-redirect=true" />
+        </h2>
+
     </h:body>
 </html>
 

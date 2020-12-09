@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>List of items</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" />
+        <f:loadBundle var="pMsg" basename="products" />
+    </h:head>
+    <h:body>
+
+        <div class="container" >
+            <h1 class="text-center">#{pMsg['booking.reservation']}</h1>
+            <h:link styleClass="btn btn-outline-info" value="Trở về trang chủ"
+                    includeViewParams="true"
+                    outcome="index?faces-redirect=true">
+            </h:link>
+            <h:dataTable styleClass="table" var="booking"
+                         value="#{bookingBean.bookings}" >
+                <h:column>
+                    <f:facet name="header"> #{pMsg['booking.id']} </f:facet>
+                        #{booking.id}
+                </h:column>
+
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.name']} </f:facet>
+                        #{booking.name}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.description']} </f:facet>
+                        #{booking.description}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.capacity']} </f:facet>
+                        #{booking.capacity}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.time']} </f:facet>
+                        #{booking.timetable.time}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.day']} </f:facet>
+                        #{booking.date}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.month']} </f:facet>
+                        #{booking.date.month}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> #{pMsg['booking.phone']} </f:facet>
+                        #{booking.phone}
+                </h:column>
+            </h:dataTable>
+        </div>
+    </h:body>
+</html>
