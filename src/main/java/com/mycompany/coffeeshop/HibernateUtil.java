@@ -28,6 +28,8 @@ public class HibernateUtil {
         pros.put(Environment.URL, "jdbc:mysql://localhost:3306/coffee");
         pros.put(Environment.USER, "root");
         pros.put(Environment.PASS, "85362378");
+        pros.put(Environment.SHOW_SQL, true);
+        //pros.put(Environment.VALIDATE_QUERY_PARAMETERS,true);
 
         configure.setProperties(pros);
 

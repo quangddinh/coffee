@@ -51,6 +51,7 @@ public class BookingBean implements Serializable {
                 this.capacity = p.getCapacity();
                 this.time = p.getTimetable();
                 this.date = p.getDate();
+
             }
         }
     }
@@ -80,6 +81,10 @@ public class BookingBean implements Serializable {
     public List<Booking> getBookings() {
         List<Booking> bookings = bookService.getBookings(null);
         return bookings;
+    }
+
+    public List<Booking> getStoreBookings() {
+        return bookService.getStore();
     }
 
     public List<Capacity> getCapacities() {

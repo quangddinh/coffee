@@ -10,6 +10,7 @@ import com.qh.pojo.PaymentDetail;
 import com.qh.pojo.Product;
 import com.qh.service.PaymentService;
 import com.qh.service.ProductService;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -40,6 +41,12 @@ public class PaymentBean {
             Payment p = new Payment();
             p.setCreatedDate(new Date());
 
+//            SimpleDateFormat datefor = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+//            String stringDate = datefor.format(p.getCreatedDate());
+//
+//            System.out.println(stringDate);
+//            System.out.println("hello");
+//            System.out.println("Test Date Payment" + p.getCreatedDate());
             List<PaymentDetail> details = new ArrayList<>();
             List<Map<String, Object>> kq = new ArrayList<>();
             for (Object o : cart.values()) {
@@ -55,7 +62,6 @@ public class PaymentBean {
                 detail.setPrice(product.getPrice());
                 detail.setCount(Integer.parseInt(d.get("count").toString()));
 
-                // list
                 details.add(detail);
             }
             if (paymentService.addPayment(p, details) == true) {

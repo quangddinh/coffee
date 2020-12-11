@@ -17,6 +17,7 @@ public class PaymentService {
     private final static SessionFactory factory = HibernateUtil.getSessionFactory();
 
     public boolean addPayment(Payment payment, List<PaymentDetail> details) {
+        System.out.println("Tracking PaymentService" + payment.getCreatedDate());
 
         try ( Session session = factory.openSession()) {
             try {
@@ -33,11 +34,9 @@ public class PaymentService {
                 return true;
             } catch (Exception ex) {
                 session.getTransaction().rollback();
+                return false;
             }
-
         }
-
-        return false;
     }
 
 }

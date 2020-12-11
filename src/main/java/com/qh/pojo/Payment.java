@@ -24,7 +24,7 @@ public class Payment implements Serializable {
     private int id;
 
     @Column(name = "created_date")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date createdDate;
 
     public int getId() {

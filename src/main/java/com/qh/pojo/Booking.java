@@ -1,9 +1,7 @@
 package com.qh.pojo;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 @Entity
 // create persist unit tạo kết nối csdl
@@ -24,6 +23,7 @@ public class Booking implements Serializable {
     private String name;
     private String phone;
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -5,6 +5,7 @@ import com.qh.pojo.Product;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
@@ -13,17 +14,21 @@ public class CoffeeShop {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         System.setOut(new PrintStream(System.out, true, "UTF8"));
+
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println("hello");
+
 // B1: tạo session để truy vấn
-        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            /*
+//        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+        /*
             Query<Category> query = session.createQuery("FROM Category");
             List<Category> cats = query.list();
             cats.forEach(c -> System.out.println(c.getName()));
             ĐỌC DỮ LIỆU
-             */
-
+         */
 //B2: nếu sửa hoặc ghi thì thêm TRANSACTION
-            /*
+        /*
             session.getTransaction().begin();
             Category c = session.get(Category.class, 2);
             Product p = new Product();
@@ -34,8 +39,8 @@ public class CoffeeShop {
 
             session.getTransaction().commit();
             session.save(p);
-             */
-        }
-
+         */
+//    }
+//
     }
 }
