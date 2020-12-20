@@ -81,22 +81,24 @@
                 <p:dialog header="Lịch đặt bàn sắp diễn ra" widgetVar="dlg2"
                           modal="true" height="400"
                           width="600" >
-                    <h:dataTable styleClass="table" var="store"
-                                 value="#{bookingBean.stores}" >
+                    <h:dataTable styleClass="table" var="select"
+                                 value="#{bookingBean.selects}" >
                         <h:column >
                             <f:facet name="header"> #{pMsg['booking.day']} </f:facet>
-                                #{store.date}
+                                #{select.date}
+                        </h:column>
+                        <h:column >
+                            <f:facet name="header"> #{pMsg['booking.name']} </f:facet>
+                                #{select.name}
+                        </h:column>
+                        <h:column >
+                            <f:facet name="header"> #{pMsg['booking.phone']} </f:facet>
+                                #{select.phone}
                         </h:column>
                         <h:column >
                             <f:facet name="header"> #{pMsg['booking.time']} </f:facet>
-                                #{store.timetable.time}
+                                #{select.timetable.time}
                         </h:column>
-
-                        <h:column >
-                            <f:facet name="header"> #{pMsg['booking.name']} </f:facet>
-                                #{store.name}
-                        </h:column>
-
                     </h:dataTable>
                 </p:dialog>
 

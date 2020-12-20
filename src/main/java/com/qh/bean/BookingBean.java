@@ -5,6 +5,7 @@ import com.qh.pojo.Capacity;
 import com.qh.pojo.Timetable;
 import com.qh.service.BookingService;
 import com.qh.service.CapacityService;
+import com.qh.service.SelectService;
 import com.qh.service.TimetableService;
 import java.io.Serializable;
 import java.text.ParseException;
@@ -27,6 +28,7 @@ public class BookingBean implements Serializable {
     private final static CapacityService capService = new CapacityService();
     private final static TimetableService timeService = new TimetableService();
     private final static BookingService bookService = new BookingService();
+    private final static SelectService selectSerice = new SelectService();
 
     private int bookingId;
     private String name;
@@ -84,6 +86,15 @@ public class BookingBean implements Serializable {
         return bookings;
     }
 
+    public List<Booking> getSelects() {
+        List<Booking> selects = selectSerice.callStore();
+        return selects;
+    }
+
+//    public List<Object[]> getSelects1() {
+//        List<Object[]> selects = selectSerice.callStore1();
+//        return selects;
+//    }
     public List<Booking> getStores() {
         List<Booking> stores = bookService.getStores();
         return stores;
