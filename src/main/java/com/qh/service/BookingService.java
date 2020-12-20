@@ -2,10 +2,7 @@ package com.qh.service;
 
 import com.qh.pojo.Booking;
 import com.mycompany.coffeeshop.HibernateUtil;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import javax.persistence.EntityManager;
 import javax.persistence.StoredProcedureQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,7 +10,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 
 public class BookingService {
 
@@ -31,7 +27,6 @@ public class BookingService {
                 String p = String.format("%%s%%", kw);
 
                 Predicate p1 = builder.like(root.get("name").as(String.class), p);
-                // vị từ - truyền chuỗi truy vấn
                 Predicate p2 = builder.like(root.get("description").as(String.class), p);
 
                 query = query.where(builder.or(p1, p2));
@@ -41,15 +36,14 @@ public class BookingService {
         }
     }
 
-    public List<Booking> getStore() {
+    public List<Booking> getStores() {
         Session session = factory.openSession();
         StoredProcedureQuery query = session
-                .createStoredProcedureQuery("sortdate");
+                .createStoredProcedureCall("sortdate");
 
         query.execute();
 
-        List<Booking> sortdate = query.getResultList();
-        return sortdate;
+        return query.getResultList();
     }
 
     public boolean addOrSaveBooking(Booking p) {

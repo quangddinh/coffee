@@ -7,6 +7,7 @@ import com.qh.service.BookingService;
 import com.qh.service.CapacityService;
 import com.qh.service.TimetableService;
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -83,8 +84,9 @@ public class BookingBean implements Serializable {
         return bookings;
     }
 
-    public List<Booking> getStoreBookings() {
-        return bookService.getStore();
+    public List<Booking> getStores() {
+        List<Booking> stores = bookService.getStores();
+        return stores;
     }
 
     public List<Capacity> getCapacities() {
