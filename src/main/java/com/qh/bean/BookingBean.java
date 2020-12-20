@@ -8,7 +8,6 @@ import com.qh.service.CapacityService;
 import com.qh.service.SelectService;
 import com.qh.service.TimetableService;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -54,7 +53,6 @@ public class BookingBean implements Serializable {
                 this.capacity = p.getCapacity();
                 this.time = p.getTimetable();
                 this.date = p.getDate();
-
             }
         }
     }
@@ -66,7 +64,6 @@ public class BookingBean implements Serializable {
         } else {
             p = new Booking();
         }
-
         p.setName(this.name);
         p.setPhone(this.phone);
         p.setDescription(this.description);
@@ -77,7 +74,6 @@ public class BookingBean implements Serializable {
         if (bookService.addOrSaveBooking(p) == true) {
             return "index?faces-redirect=true";
         }
-
         return "form";
     }
 
@@ -89,15 +85,6 @@ public class BookingBean implements Serializable {
     public List<Booking> getSelects() {
         List<Booking> selects = selectSerice.callStore();
         return selects;
-    }
-
-//    public List<Object[]> getSelects1() {
-//        List<Object[]> selects = selectSerice.callStore1();
-//        return selects;
-//    }
-    public List<Booking> getStores() {
-        List<Booking> stores = bookService.getStores();
-        return stores;
     }
 
     public List<Capacity> getCapacities() {

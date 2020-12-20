@@ -3,7 +3,6 @@ package com.qh.service;
 import com.qh.pojo.Booking;
 import com.mycompany.coffeeshop.HibernateUtil;
 import java.util.List;
-import javax.persistence.StoredProcedureQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -22,7 +21,6 @@ public class BookingService {
             Root<Booking> root = query.from(Booking.class);
             query.select(root);
 
-            // lấy dsach sản phẩm
             if (kw != null && !kw.isEmpty()) {
                 String p = String.format("%%s%%", kw);
 
@@ -34,16 +32,6 @@ public class BookingService {
 
             return session.createQuery(query).getResultList();
         }
-    }
-
-    public List<Booking> getStores() {
-        Session session = factory.openSession();
-        StoredProcedureQuery query = session
-                .createStoredProcedureCall("sortdate");
-
-        query.execute();
-
-        return query.getResultList();
     }
 
     public boolean addOrSaveBooking(Booking p) {
@@ -65,7 +53,5 @@ public class BookingService {
         try ( Session session = factory.openSession()) {
             return session.get(Booking.class, bookId);
         }
-
     }
-
 }

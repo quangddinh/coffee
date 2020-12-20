@@ -13,14 +13,12 @@
         <f:loadBundle var="pMsg" basename="products" />
     </h:head>
     <h:body>
-
         <div class="container" >
             <h1 class="text-center">#{pMsg['booking.reservation']}</h1>
             <h:link styleClass="btn btn-outline-info" value="Trở về trang chủ"
                     includeViewParams="true"
                     outcome="index?faces-redirect=true">
             </h:link>
-
 
             <h:dataTable styleClass="table" var="booking"
                          value="#{bookingBean.bookings}" >
@@ -67,11 +65,8 @@
             </h:dataTable>
 
         </div>
-
-
         <h1>
             hello        </h1>
-
         <div class="container" >
             <h:form id="form">
                 <p:commandButton value="Xem lịch" type="button"
@@ -88,6 +83,10 @@
                                 #{select.date}
                         </h:column>
                         <h:column >
+                            <f:facet name="header"> #{pMsg['booking.time']} </f:facet>
+                                #{select.timetable.time}
+                        </h:column>
+                        <h:column >
                             <f:facet name="header"> #{pMsg['booking.name']} </f:facet>
                                 #{select.name}
                         </h:column>
@@ -95,17 +94,9 @@
                             <f:facet name="header"> #{pMsg['booking.phone']} </f:facet>
                                 #{select.phone}
                         </h:column>
-                        <h:column >
-                            <f:facet name="header"> #{pMsg['booking.time']} </f:facet>
-                                #{select.timetable.time}
-                        </h:column>
                     </h:dataTable>
                 </p:dialog>
-
             </h:form>
         </div>
-
-
-
     </h:body>
 </html>
