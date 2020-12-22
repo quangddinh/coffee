@@ -83,4 +83,20 @@ public class PaymentBean {
     public List<PaymentDetail> getDatcre() {
         return selectSerice.getDatcre();
     }
+
+    public List<PaymentDetail> getQuarter() {
+        return selectSerice.getQuarter();
+    }
+
+    public List<PaymentDetail> getMonth() {
+        return selectSerice.getMonth();
+    }
+
+    public List<PaymentDetail> getYear() {
+        return selectSerice.getYear();
+    }
+
+    public List<PaymentDetail> getYearTotal() {
+        return selectSerice.getYearTotal();
+    }
 }

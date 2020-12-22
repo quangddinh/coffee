@@ -76,6 +76,38 @@
                             </tr>
                         </c:forEach>
                     </tr>
+                    <tr>
+                        <th scope="col">Quý</th>
+                        <c:forEach var="pro" items="#{paymentBean.quarter}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Tháng</th>
+                        <c:forEach var="pro" items="#{paymentBean.month}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Sale year</th>
+                        <c:forEach var="pro" items="#{paymentBean.yearTotal}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Năm</th>
+                        <c:forEach var="pro" items="#{paymentBean.year}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
                 </thead>
                 <tbody>
                 </tbody>

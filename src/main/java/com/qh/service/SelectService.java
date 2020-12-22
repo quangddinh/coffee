@@ -62,4 +62,52 @@ public class SelectService {
         }
     }
 
+    public List<PaymentDetail> getQuarter() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT QUARTER(datcre) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY datcre");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getMonth() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT MONTH(datcre) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY datcre");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getYearTotal() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT SUM(price) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY YEAR(datcre)");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getYear() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT YEAR(datcre) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY YEAR(datcre) ");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
 }
