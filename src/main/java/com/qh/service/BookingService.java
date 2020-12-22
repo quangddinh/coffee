@@ -49,6 +49,20 @@ public class BookingService {
         return true;
     }
 
+    public boolean deleteBooking(Booking b) {
+        try ( Session session = factory.openSession()) {
+            try {
+                session.getTransaction().begin();
+                session.delete(b);
+                session.getTransaction().commit();
+            } catch (Exception ex) {
+                session.getTransaction().rollback();
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Booking getBookingyId(int bookId) {
         try ( Session session = factory.openSession()) {
             return session.get(Booking.class, bookId);

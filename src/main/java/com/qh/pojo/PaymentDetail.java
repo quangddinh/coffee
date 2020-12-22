@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qh.pojo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 @Entity
 @Table(name = "order_detail")
@@ -31,12 +28,14 @@ public class PaymentDetail implements Serializable {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-    private String img;
-
     @Column(name = "sum")
     private BigDecimal price;
+
     private int count;
+    private String img;
+
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date datcre;
 
     public int getId() {
         return id;
@@ -84,6 +83,14 @@ public class PaymentDetail implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Date getDatcre() {
+        return datcre;
+    }
+
+    public void setDatcre(Date datcre) {
+        this.datcre = datcre;
     }
 
 }

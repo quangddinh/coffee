@@ -19,22 +19,6 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class ProductBean {
 
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
     private int productId;
     private String name;
     private String description;
@@ -42,7 +26,6 @@ public class ProductBean {
     private BigDecimal price;
     private Category category;
 
-    // mapping JSF to Bean
     private final static ProductService proService = new ProductService();
 
     public ProductBean() {
@@ -97,7 +80,22 @@ public class ProductBean {
             return "successful";
         }
         throw new Exception("Sai roi");
+    }
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getName() {

@@ -65,16 +65,23 @@ public class BookingBean implements Serializable {
             p = new Booking();
         }
         p.setName(this.name);
-        p.setPhone(this.phone);
         p.setDescription(this.description);
         p.setCapacity(this.capacity);
         p.setTimetable(this.time);
         p.setDate(this.date);
+        p.setPhone(this.phone);
 
         if (bookService.addOrSaveBooking(p) == true) {
-            return "index?faces-redirect=true";
+            return "reservations?faces-redirect=true";
         }
         return "form";
+    }
+
+    public String deleteBooking(Booking p) throws Exception {
+        if (bookService.deleteBooking(p)) {
+            return "successful";
+        }
+        throw new Exception("Sai roi");
     }
 
     public List<Booking> getBookings() {

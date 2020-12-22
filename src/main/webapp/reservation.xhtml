@@ -54,11 +54,16 @@
                 <h:column >
                     <f:facet name="header"></f:facet>
                     <h:form >
-                        <h:link value="#{pMsg['products.update']}" includeViewParams="true"
-                                outcome="form?faces-redirect=true">
+                        <h:link value="#{pMsg['products.update']}"
+                                includeViewParams="true"
+                                outcome="form?faces-redirect=true"
+                                >
+                            <f:param name="booking_id" value="#{booking.id}" />
                         </h:link>
                         |
                         <h:commandLink value="#{pMsg['products.delete']}">
+                            <f:ajax listener="#{bookingBean.deleteBooking(booking)}"
+                                    onevent="deleteSuccess"/>
                         </h:commandLink>
                     </h:form>
                 </h:column>
@@ -98,5 +103,10 @@
                 </p:dialog>
             </h:form>
         </div>
+        <script>
+            function  deleteSuccess() {
+                window.alert("Xoa thanh cong");
+            }
+        </script>
     </h:body>
 </html>
