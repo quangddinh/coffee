@@ -30,7 +30,8 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT SUM(price) "
                     + "FROM PaymentDetail "
-                    + "GROUP BY datcre ");
+                    + "GROUP BY datcre "
+                    + "ORDER BY datcre DESC");
 
             List<PaymentDetail> rs = query.list();
             System.out.println(rs);
@@ -43,7 +44,8 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT COUNT(product)"
                     + "FROM PaymentDetail "
-                    + "GROUP BY datcre");
+                    + "GROUP BY datcre "
+                    + "ORDER BY datcre DESC");
             List<PaymentDetail> rs = query.list();
 
             return rs;
@@ -55,7 +57,8 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT datcre "
                     + "FROM PaymentDetail "
-                    + "GROUP BY datcre");
+                    + "GROUP BY datcre "
+                    + "ORDER BY datcre DESC");
             List<PaymentDetail> rs = query.list();
 
             return rs;
