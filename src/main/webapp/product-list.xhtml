@@ -57,17 +57,12 @@
                         |
                         <h:commandLink value="#{pMsg['products.delete']}">
                             <f:ajax listener="#{productBean.deleteProduct(product)}"
-                                    onevent="deleteSuccess"/>
+                                    render="@all" />
                         </h:commandLink>
                     </h:form>
                 </h:column>
             </h:dataTable>
         </div>
-        <script>
-            function  deleteSuccess() {
-                window.alert("Xoa thanh cong");
-            }
-        </script>
     </h:body>
 </html>
 

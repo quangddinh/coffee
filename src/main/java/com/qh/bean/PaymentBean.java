@@ -5,6 +5,7 @@ import com.qh.pojo.PaymentDetail;
 import com.qh.pojo.Product;
 import com.qh.service.PaymentService;
 import com.qh.service.ProductService;
+import com.qh.service.SelectService;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +22,8 @@ public class PaymentBean {
 
     private static final ProductService productService = new ProductService();
     private static final PaymentService paymentService = new PaymentService();
+    private final static SelectService selectSerice = new SelectService();
+
     private String img;
 
     public PaymentBean() {
@@ -63,5 +66,21 @@ public class PaymentBean {
         }
         return "payment";
 
+    }
+
+//    public List<PaymentDetail> getSelects() {
+//        List<PaymentDetail> selects = selectSerice.callStore1();
+//        return selects;
+//    }
+    public List<PaymentDetail> getTotal() {
+        return selectSerice.getTotal();
+    }
+
+    public List<PaymentDetail> getCount() {
+        return selectSerice.getCountProduct();
+    }
+
+    public List<PaymentDetail> getDatcre() {
+        return selectSerice.getDatcre();
     }
 }

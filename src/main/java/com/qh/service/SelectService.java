@@ -2,6 +2,7 @@ package com.qh.service;
 
 import com.mycompany.coffeeshop.HibernateUtil;
 import com.qh.pojo.Booking;
+import com.qh.pojo.PaymentDetail;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,6 +18,45 @@ public class SelectService {
             Query<Booking> query = session.createQuery("FROM Booking ORDER BY DATE ASC");
 
             List<Booking> rs = query.list();
+            System.out.println(rs);
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getTotal() {
+        try ( Session session = factory.openSession()) {
+
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT SUM(price) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY datcre ");
+
+            List<PaymentDetail> rs = query.list();
+            System.out.println(rs);
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getCountProduct() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT COUNT(product)"
+                    + "FROM PaymentDetail "
+                    + "GROUP BY datcre");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getDatcre() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT datcre "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY datcre");
+            List<PaymentDetail> rs = query.list();
 
             return rs;
         }

@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -45,6 +46,42 @@
         <h2 class="text-center" style="color: blueviolet">
             <h:link value="Reservations" outcome="form?faces-redirect=true" />
         </h2>
+
+
+
+        <div >
+            <table class="w3-table-all">
+                <thead>
+                    <tr>
+                        <th scope="col">tong gia</th>
+                        <c:forEach var="pro" items="#{paymentBean.total}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">So luong sp</th>
+                        <c:forEach var="pro" items="#{paymentBean.count}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Ngay</th>
+                        <c:forEach var="pro" items="#{paymentBean.datcre}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+        </div>
 
     </h:body>
 </html>

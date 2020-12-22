@@ -13,7 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-// create persist unit tạo kết nối csdl
 @Table(name = "booking")
 public class Booking implements Serializable {
 

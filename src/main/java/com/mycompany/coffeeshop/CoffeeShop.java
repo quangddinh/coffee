@@ -1,6 +1,5 @@
 package com.mycompany.coffeeshop;
 
-import static com.qh.service.SelectService.callStore;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -13,7 +12,7 @@ public class CoffeeShop {
         Date date = new Date();
         System.out.println(date);
         System.out.println("hello");
-        callStore();
+//        callStore();
 
     }
 }

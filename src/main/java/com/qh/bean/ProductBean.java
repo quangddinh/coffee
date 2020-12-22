@@ -10,10 +10,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author Dinh Quang
- */
 @ManagedBean
 @Named(value = "productBean")
 @RequestScoped
@@ -79,7 +75,7 @@ public class ProductBean {
         if (proService.deleteProduct(p)) {
             return "successful";
         }
-        throw new Exception("Sai roi");
+        throw new Exception("Cannot delete");
     }
 
     public int getProductId() {

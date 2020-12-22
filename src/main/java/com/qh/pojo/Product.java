@@ -28,7 +28,6 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id")
     private Category category;
 
-// qua Util chỉ định product class
     public int getId() {
         return id;
     }
@@ -43,14 +42,6 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public String getDescription() {
@@ -75,6 +66,14 @@ public class Product implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
 }

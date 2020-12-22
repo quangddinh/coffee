@@ -80,7 +80,6 @@ public class CartBean implements Serializable {
         } else {
             Map<String, Object> d = (Map<String, Object>) cart.get(productId);
             d.put("count", Integer.parseInt(d.get("count").toString()) + 1);
-
         }
         return "";
 
