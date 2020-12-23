@@ -85,6 +85,22 @@
                         </c:forEach>
                     </tr>
                     <tr>
+                        <th scope="col">Doanh thu theo quý</th>
+                        <c:forEach var="pro" items="#{paymentBean.quarterTotal}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Sản phẩm theo quý</th>
+                        <c:forEach var="pro" items="#{paymentBean.quarterProduct}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
                         <th scope="col">Tháng</th>
                         <c:forEach var="pro" items="#{paymentBean.month}">
                             <tr>
@@ -93,7 +109,23 @@
                         </c:forEach>
                     </tr>
                     <tr>
-                        <th scope="col">Sale year</th>
+                        <th scope="col">Doanh thu theo tháng</th>
+                        <c:forEach var="pro" items="#{paymentBean.monthTotal}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Sản phẩm bán ra trong tháng</th>
+                        <c:forEach var="pro" items="#{paymentBean.monthProduct}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Doanh thu năm</th>
                         <c:forEach var="pro" items="#{paymentBean.yearTotal}">
                             <tr>
                                 <td>#{pro}</td>
@@ -102,7 +134,15 @@
                     </tr>
                     <tr>
                         <th scope="col">Năm</th>
-                        <c:forEach var="pro" items="#{paymentBean.year}">
+                        <c:forEach var="pro" items="#{paymentBean.years}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
+                        <th scope="col">Sản phẩm trong năm</th>
+                        <c:forEach var="pro" items="#{paymentBean.yearProduct}">
                             <tr>
                                 <td>#{pro}</td>
                             </tr>
@@ -114,7 +154,58 @@
             </table>
 
         </div>
+        <div >
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Nam</th>
+                        <th scope="col">tien</th>
+                        <th scope="col">san pham</th>
 
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr >
+
+                    </tr>
+                    <c:forEach var="pro" items="#{paymentBean.years}">
+                        <c:forEach var="pro1" items="#{paymentBean.yearTotal}">
+                            <c:forEach var="pro2" items="#{paymentBean.yearProduct}">
+                                <tr >
+                                    <td>#{pro}</td>
+                                    <td>#{pro1}</td>
+                                    <td>#{pro2}</td>
+                                </tr>
+                            </c:forEach>
+                        </c:forEach>
+                    </c:forEach>
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="container" >
+            <h1 class="text-center">Báo cáo</h1>
+            <h:dataTable styleClass="table"    var="y"
+                         value="#{paymentBean.years}" >
+                <h:column >
+                    <f:facet name="header"> Năm </f:facet>
+                        #{y}
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> Sản phẩm theo năm </f:facet>
+                    aaaaaa
+                </h:column>
+                <h:column >
+                    <f:facet name="header"> Doanh thu theo năm </f:facet>
+                    cccccc
+                </h:column>
+            </h:dataTable>
+
+        </div>
     </h:body>
 </html>
 

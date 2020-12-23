@@ -70,7 +70,34 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT QUARTER(datcre) "
                     + "FROM PaymentDetail "
-                    + "GROUP BY datcre");
+                    + "GROUP BY QUARTER(datcre)"
+                    + "ORDER BY QUARTER(datcre) DESC");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getQuarterTotal() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT SUM(price) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY QUARTER(datcre)"
+                    + "ORDER BY QUARTER(datcre) DESC");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getProductQuarter() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT COUNT(product)"
+                    + "FROM PaymentDetail "
+                    + "GROUP BY QUARTER(datcre) "
+                    + "ORDER BY QUARTER(datcre) DESC");
             List<PaymentDetail> rs = query.list();
 
             return rs;
@@ -82,7 +109,34 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT MONTH(datcre) "
                     + "FROM PaymentDetail "
-                    + "GROUP BY datcre");
+                    + "GROUP BY MONTH(datcre)"
+                    + "ORDER BY MONTH(datcre) DESC");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getMonthTotal() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT SUM(price) "
+                    + "FROM PaymentDetail "
+                    + "GROUP BY MONTH(datcre)"
+                    + "ORDER BY MONTH(datcre) DESC");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getProductMonth() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT COUNT(product)"
+                    + "FROM PaymentDetail "
+                    + "GROUP BY MONTH(datcre) "
+                    + "ORDER BY MONTH(datcre) DESC");
             List<PaymentDetail> rs = query.list();
 
             return rs;
@@ -95,6 +149,19 @@ public class SelectService {
                     "SELECT SUM(price) "
                     + "FROM PaymentDetail "
                     + "GROUP BY YEAR(datcre)");
+            List<PaymentDetail> rs = query.list();
+
+            return rs;
+        }
+    }
+
+    public List<PaymentDetail> getProductYear() {
+        try ( Session session = factory.openSession()) {
+            Query<PaymentDetail> query = session.createQuery(
+                    "SELECT COUNT(product)"
+                    + "FROM PaymentDetail "
+                    + "GROUP BY YEAR(datcre) "
+                    + "ORDER BY YEAR(datcre) DESC");
             List<PaymentDetail> rs = query.list();
 
             return rs;

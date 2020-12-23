@@ -92,11 +92,32 @@ public class PaymentBean {
         return selectSerice.getMonth();
     }
 
-    public List<PaymentDetail> getYear() {
+    public List<PaymentDetail> getYears() {
         return selectSerice.getYear();
     }
 
     public List<PaymentDetail> getYearTotal() {
         return selectSerice.getYearTotal();
     }
+
+    public List<PaymentDetail> getYearProduct() {
+        return selectSerice.getProductYear();
+    }
+
+    public List<PaymentDetail> getQuarterTotal() {
+        return selectSerice.getQuarterTotal();
+    }
+
+    public List<PaymentDetail> getQuarterProduct() {
+        return selectSerice.getProductQuarter();
+    }
+
+    public List<PaymentDetail> getMonthTotal() {
+        return selectSerice.getMonthTotal();
+    }
+
+    public List<PaymentDetail> getMonthProduct() {
+        return selectSerice.getProductMonth();
+    }
+
 }
