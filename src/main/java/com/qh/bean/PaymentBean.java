@@ -67,11 +67,11 @@ public class PaymentBean {
         return "payment";
 
     }
+    //    public List<PaymentDetail> getSelects() {
+    //        List<PaymentDetail> selects = selectSerice.callStore1();
+    //        return selects;
+    //    }
 
-//    public List<PaymentDetail> getSelects() {
-//        List<PaymentDetail> selects = selectSerice.callStore1();
-//        return selects;
-//    }
     public List<PaymentDetail> getTotal() {
         return selectSerice.getTotal();
     }
@@ -118,6 +118,10 @@ public class PaymentBean {
 
     public List<PaymentDetail> getMonthProduct() {
         return selectSerice.getProductMonth();
+    }
+
+    public List<PaymentDetail> getTonghop() {
+        return selectSerice.getTonghop();
     }
 
 }

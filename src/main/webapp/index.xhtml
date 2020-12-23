@@ -53,6 +53,14 @@
             <table class="w3-table-all">
                 <thead>
                     <tr>
+                        <th scope="col">Tong hop</th>
+                        <c:forEach var="pro" items="#{paymentBean.tonghop}">
+                            <tr>
+                                <td>#{pro}</td>
+                            </tr>
+                        </c:forEach>
+                    </tr>
+                    <tr>
                         <th scope="col">tong gia</th>
                         <c:forEach var="pro" items="#{paymentBean.total}">
                             <tr>
@@ -161,31 +169,68 @@
                         <th scope="col">Nam</th>
                         <th scope="col">tien</th>
                         <th scope="col">san pham</th>
-
                     </tr>
 
                 </thead>
                 <tbody>
                     <tr >
-
+                        <td>#{paymentBean.years[0]}</td>
+                        <td>#{paymentBean.yearTotal[0]}</td>
+                        <td>#{paymentBean.yearProduct[0]}</td>
                     </tr>
-                    <c:forEach var="pro" items="#{paymentBean.years}">
-                        <c:forEach var="pro1" items="#{paymentBean.yearTotal}">
-                            <c:forEach var="pro2" items="#{paymentBean.yearProduct}">
-                                <tr >
-                                    <td>#{pro}</td>
-                                    <td>#{pro1}</td>
-                                    <td>#{pro2}</td>
-                                </tr>
-                            </c:forEach>
-                        </c:forEach>
-                    </c:forEach>
+                    <tr >
+                        <td>#{paymentBean.years[1]}</td>
+                        <td>#{paymentBean.yearTotal[1]}</td>
+                        <td>#{paymentBean.yearProduct[1]}</td>
+                    </tr>
+
 
 
                 </tbody>
             </table>
         </div>
 
+        <div >
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Ngay</th>
+                        <th scope="col">tien</th>
+                        <th scope="col">san pham</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    <c:forEach var="pro" items="#{paymentBean.datcre}">
+                        <tr>
+                            <tr >
+                                <td>#{pro}</td>
+                            </tr>
+                        </tr>
+                    </c:forEach>
+                    <c:forEach var="pro" items="#{paymentBean.total}">
+                        <tr>
+                            <tr >
+                                <td>#{pro}</td>
+                            </tr>
+                        </tr>
+                    </c:forEach>
+                    <c:forEach var="pro" items="#{paymentBean.count}">
+                        <tr>
+                            <tr >
+                                <td>#{pro}</td>
+                            </tr>
+                        </tr>
+                    </c:forEach>
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
 
         <div class="container" >
             <h1 class="text-center">Báo cáo</h1>
