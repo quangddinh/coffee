@@ -24,21 +24,20 @@ public class SelectService {
         }
     }
 
-    public List<PaymentDetail> getTonghop() {
-        try ( Session session = factory.openSession()) {
-
-            Query<PaymentDetail> query = session.createQuery(
-                    "SELECT SUM(P.price * P.count) , SUM(P.count) , P.datcre "
-                    + "FROM PaymentDetail P "
-                    + "GROUP BY P.datcre "
-                    + "ORDER BY P.datcre DESC");
-
-            List<PaymentDetail> rs = query.list();
-            System.out.println(rs);
-            return rs;
-        }
-    }
-
+//    public List<PaymentDetail> getTonghop() {
+//        try ( Session session = factory.openSession()) {
+//
+//            Query<PaymentDetail> query = session.createQuery(
+//                    "SELECT SUM(P.price * P.count) , SUM(P.count) , P.datcre "
+//                    + "FROM PaymentDetail P "
+//                    + "GROUP BY P.datcre "
+//                    + "ORDER BY P.datcre DESC");
+//
+//            List<PaymentDetail> rs = query.list();
+//            System.out.println(rs);
+//            return rs;
+//        }
+//    }
     public List<PaymentDetail> getTotal() {
         try ( Session session = factory.openSession()) {
 
@@ -70,8 +69,8 @@ public class SelectService {
     public List<PaymentDetail> getDatcre() {
         try ( Session session = factory.openSession()) {
             Query<PaymentDetail> query = session.createQuery(
-                    "SELECT datcre "
-                    + "FROM PaymentDetail "
+                    "SELECT P.datcre "
+                    + "FROM PaymentDetail P "
                     + "GROUP BY datcre "
                     + "ORDER BY datcre DESC");
             List<PaymentDetail> rs = query.list();

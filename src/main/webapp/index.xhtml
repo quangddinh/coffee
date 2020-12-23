@@ -53,14 +53,6 @@
             <table class="w3-table-all">
                 <thead>
                     <tr>
-                        <th scope="col">Tong hop</th>
-                        <c:forEach var="pro" items="#{paymentBean.tonghop}">
-                            <tr>
-                                <td>#{pro}</td>
-                            </tr>
-                        </c:forEach>
-                    </tr>
-                    <tr>
                         <th scope="col">tong gia</th>
                         <c:forEach var="pro" items="#{paymentBean.total}">
                             <tr>
@@ -162,6 +154,44 @@
             </table>
 
         </div>
+
+
+
+
+
+
+
+
+
+
+        <div >
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Nam</th>
+                        <th scope="col">tien</th>
+                        <th scope="col">san pham</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
         <div >
             <table class="table table-dark">
                 <thead>
@@ -221,6 +251,80 @@
                 </tbody>
             </table>
         </div>
+        <div >
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Tháng</th>
+                        <th scope="col">Doanh thu tháng </th>
+                        <th scope="col">Số lượng bán ra theo tháng</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>#{paymentBean.month[0]}</td>
+                        <td>#{paymentBean.monthTotal[0]}</td>
+                        <td>#{paymentBean.monthProduct[0]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[1]}</td>
+                        <td>#{paymentBean.monthTotal[1]}</td>
+                        <td>#{paymentBean.monthProduct[1]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[2]}</td>
+                        <td>#{paymentBean.monthTotal[2]}</td>
+                        <td>#{paymentBean.monthProduct[2]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[3]}</td>
+                        <td>#{paymentBean.monthTotal[3]}</td>
+                        <td>#{paymentBean.monthProduct[3]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[4]}</td>
+                        <td>#{paymentBean.monthTotal[4]}</td>
+                        <td>#{paymentBean.monthProduct[4]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[5]}</td>
+                        <td>#{paymentBean.monthTotal[5]}</td>
+                        <td>#{paymentBean.monthProduct[5]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[6]}</td>
+                        <td>#{paymentBean.monthTotal[6]}</td>
+                        <td>#{paymentBean.monthProduct[6]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[7]}</td>
+                        <td>#{paymentBean.monthTotal[7]}</td>
+                        <td>#{paymentBean.monthProduct[7]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[8]}</td>
+                        <td>#{paymentBean.monthTotal[8]}</td>
+                        <td>#{paymentBean.monthProduct[8]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[9]}</td>
+                        <td>#{paymentBean.monthTotal[9]}</td>
+                        <td>#{paymentBean.monthProduct[9]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[10]}</td>
+                        <td>#{paymentBean.monthTotal[10]}</td>
+                        <td>#{paymentBean.monthProduct[10]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.month[11]}</td>
+                        <td>#{paymentBean.monthTotal[11]}</td>
+                        <td>#{paymentBean.monthProduct[11]}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div >
             <table class="table table-dark">
@@ -266,21 +370,42 @@
 
         <div class="container" >
             <h1 class="text-center">Báo cáo</h1>
-            <h:dataTable styleClass="table"    var="y"
-                         value="#{paymentBean.years}" >
-                <h:column >
-                    <f:facet name="header"> Năm </f:facet>
-                        #{y}
-                </h:column>
-                <h:column >
-                    <f:facet name="header"> Sản phẩm theo năm </f:facet>
-                    aaaaaa
-                </h:column>
-                <h:column >
-                    <f:facet name="header"> Doanh thu theo năm </f:facet>
-                    cccccc
-                </h:column>
-            </h:dataTable>
+
+
+            <div >
+                <h:dataTable styleClass="table"    var="y"
+                             value="#{paymentBean.datcre}" >
+                    <h:column >
+                        <f:facet name="header"> Ngày </f:facet>
+                        <tr>
+                            <td>#{y}</td>
+                        </tr>
+                    </h:column>
+                </h:dataTable>
+            </div>
+            <div >
+                <h:dataTable styleClass="table"    var="y"
+                             value="#{paymentBean.total}" >
+                    <h:column >
+                        <f:facet name="header"> Doanh thu </f:facet>
+                        <tr>
+                            <td>#{y}</td>
+                        </tr>
+                    </h:column>
+                </h:dataTable>
+            </div>
+            <div >
+                <h:dataTable styleClass="table"    var="y"
+                             value="#{paymentBean.count}" >
+                    <h:column >
+                        <f:facet name="header"> Số lượng trong ngày </f:facet>
+                        <tr>
+                            <td>#{y}</td>
+                        </tr>
+                    </h:column>
+                </h:dataTable>
+            </div>
+
 
         </div>
     </h:body>

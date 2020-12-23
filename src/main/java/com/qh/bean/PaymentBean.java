@@ -120,8 +120,7 @@ public class PaymentBean {
         return selectSerice.getProductMonth();
     }
 
-    public List<PaymentDetail> getTonghop() {
-        return selectSerice.getTonghop();
-    }
-
+//    public List<PaymentDetail> getTonghop() {
+//        return selectSerice.getTonghop();
+//    }
 }
