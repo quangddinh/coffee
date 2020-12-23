@@ -85,8 +85,9 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT QUARTER(datcre) "
                     + "FROM PaymentDetail "
-                    + "GROUP BY QUARTER(datcre)"
-                    + "ORDER BY QUARTER(datcre) DESC");
+                    + "WHERE YEAR(datcre) = 2020 "
+                    + "GROUP BY QUARTER(datcre) "
+                    + "ORDER BY QUARTER(datcre) ");
             List<PaymentDetail> rs = query.list();
 
             return rs;
@@ -98,8 +99,9 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT SUM(P.price * P.count) "
                     + "FROM PaymentDetail P "
-                    + "GROUP BY QUARTER(datcre)"
-                    + "ORDER BY QUARTER(datcre) DESC");
+                    + "WHERE YEAR(P.datcre) = 2020 "
+                    + "GROUP BY QUARTER(datcre) "
+                    + "ORDER BY QUARTER(datcre)  ");
             List<PaymentDetail> rs = query.list();
 
             return rs;
@@ -111,8 +113,9 @@ public class SelectService {
             Query<PaymentDetail> query = session.createQuery(
                     "SELECT SUM(P.count) "
                     + "FROM PaymentDetail P "
+                    + "WHERE YEAR(P.datcre) = 2020 "
                     + "GROUP BY QUARTER(datcre) "
-                    + "ORDER BY QUARTER(datcre) DESC");
+                    + "ORDER BY QUARTER(datcre) ");
             List<PaymentDetail> rs = query.list();
 
             return rs;

@@ -183,9 +183,6 @@
                         <td>#{paymentBean.yearTotal[1]}</td>
                         <td>#{paymentBean.yearProduct[1]}</td>
                     </tr>
-
-
-
                 </tbody>
             </table>
         </div>
@@ -194,8 +191,43 @@
             <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Ngay</th>
-                        <th scope="col">tien</th>
+                        <th scope="col">Quý</th>
+                        <th scope="col">Doanh thu Quý </th>
+                        <th scope="col">Số lượng bán ra theo quý</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>#{paymentBean.quarter[0]}</td>
+                        <td>#{paymentBean.quarterTotal[0]}</td>
+                        <td>#{paymentBean.quarterProduct[0]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.quarter[1]}</td>
+                        <td>#{paymentBean.quarterTotal[1]}</td>
+                        <td>#{paymentBean.quarterProduct[1]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.quarter[2]}</td>
+                        <td>#{paymentBean.quarterTotal[2]}</td>
+                        <td>#{paymentBean.quarterProduct[2]}</td>
+                    </tr>
+                    <tr >
+                        <td>#{paymentBean.quarter[3]}</td>
+                        <td>#{paymentBean.quarterTotal[3]}</td>
+                        <td>#{paymentBean.quarterProduct[3]}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div >
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Quý</th>
+                        <th scope="col">Doanh thu Quý</th>
                         <th scope="col">san pham</th>
                     </tr>
 
