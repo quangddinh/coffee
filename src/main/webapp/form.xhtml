@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Product</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
@@ -37,7 +38,11 @@
                                    itemLabel="#{cap.capacity}"
                                    itemValue="#{cap}" />
                 </h:selectOneMenu>
+
             </div>
+
+            <br/>
+
 
             <div class="form-group" >
                 <h:outputLabel value="#{pMsg['booking.time']}" />
@@ -51,9 +56,21 @@
 
                 <br />
 
+                <h:outputLabel value="#{pMsg['booking.tab']}" />
+                <h:selectOneMenu id="txtTf" styleClass="form-control"
+                                 value="#{bookingBean.tab}"
+                                 converter="TabConverter" >
+                    <f:selectItems var="t" value="#{bookingBean.tabs}"
+                                   itemLabel="#{t.name}"
+                                   itemValue="#{t}" />
+                </h:selectOneMenu>
+
+                <br />
                 <p:outputLabel for="button" value="Chọn ngày" />
 
                 <br />
+
+
 
                 <p:calendar id="button" value="#{bookingBean.date}"
                             showOn="both" pattern="dd.MM.yyyy"/>

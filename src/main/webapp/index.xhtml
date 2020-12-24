@@ -155,43 +155,6 @@
 
         </div>
 
-
-
-
-
-
-
-
-
-
-        <div >
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Nam</th>
-                        <th scope="col">tien</th>
-                        <th scope="col">san pham</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-
-
-
-                </tbody>
-            </table>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
         <div >
             <table class="table table-dark">
                 <thead>
@@ -326,88 +289,8 @@
             </table>
         </div>
 
-        <div >
-            <table class="table table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Quý</th>
-                        <th scope="col">Doanh thu Quý</th>
-                        <th scope="col">san pham</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-
-                    <c:forEach var="pro" items="#{paymentBean.datcre}">
-                        <tr>
-                            <tr >
-                                <td>#{pro}</td>
-                            </tr>
-                        </tr>
-                    </c:forEach>
-                    <c:forEach var="pro" items="#{paymentBean.total}">
-                        <tr>
-                            <tr >
-                                <td>#{pro}</td>
-                            </tr>
-                        </tr>
-                    </c:forEach>
-                    <c:forEach var="pro" items="#{paymentBean.count}">
-                        <tr>
-                            <tr >
-                                <td>#{pro}</td>
-                            </tr>
-                        </tr>
-                    </c:forEach>
 
 
-
-
-
-                </tbody>
-            </table>
-        </div>
-
-        <div class="container" >
-            <h1 class="text-center">Báo cáo</h1>
-
-
-            <div >
-                <h:dataTable styleClass="table"    var="y"
-                             value="#{paymentBean.datcre}" >
-                    <h:column >
-                        <f:facet name="header"> Ngày </f:facet>
-                        <tr>
-                            <td>#{y}</td>
-                        </tr>
-                    </h:column>
-                </h:dataTable>
-            </div>
-            <div >
-                <h:dataTable styleClass="table"    var="y"
-                             value="#{paymentBean.total}" >
-                    <h:column >
-                        <f:facet name="header"> Doanh thu </f:facet>
-                        <tr>
-                            <td>#{y}</td>
-                        </tr>
-                    </h:column>
-                </h:dataTable>
-            </div>
-            <div >
-                <h:dataTable styleClass="table"    var="y"
-                             value="#{paymentBean.count}" >
-                    <h:column >
-                        <f:facet name="header"> Số lượng trong ngày </f:facet>
-                        <tr>
-                            <td>#{y}</td>
-                        </tr>
-                    </h:column>
-                </h:dataTable>
-            </div>
-
-
-        </div>
     </h:body>
 </html>
 

@@ -6,6 +6,7 @@ import com.qh.pojo.Category;
 import com.qh.pojo.Payment;
 import com.qh.pojo.PaymentDetail;
 import com.qh.pojo.Product;
+import com.qh.pojo.TableSeat;
 import com.qh.pojo.Timetable;
 import com.qh.pojo.User;
 import java.util.Properties;
@@ -41,6 +42,7 @@ public class HibernateUtil {
         configure.addAnnotatedClass(Capacity.class);
         configure.addAnnotatedClass(Timetable.class);
         configure.addAnnotatedClass(Booking.class);
+        configure.addAnnotatedClass(TableSeat.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(configure.getProperties()).build();

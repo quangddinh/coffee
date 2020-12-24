@@ -2,10 +2,14 @@ package com.qh.bean;
 
 import com.qh.pojo.Booking;
 import com.qh.pojo.Capacity;
+import com.qh.pojo.PaymentDetail;
+import com.qh.pojo.TableSeat;
 import com.qh.pojo.Timetable;
 import com.qh.service.BookingService;
 import com.qh.service.CapacityService;
+import com.qh.service.PaymentService;
 import com.qh.service.SelectService;
+import com.qh.service.TabService;
 import com.qh.service.TimetableService;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -28,6 +32,8 @@ public class BookingBean implements Serializable {
     private final static TimetableService timeService = new TimetableService();
     private final static BookingService bookService = new BookingService();
     private final static SelectService selectSerice = new SelectService();
+    private final static PaymentService payService = new PaymentService();
+    private final static TabService tabService = new TabService();
 
     private int bookingId;
     private String name;
@@ -36,6 +42,7 @@ public class BookingBean implements Serializable {
     private String description;
     private Capacity capacity;
     private Date date;
+    private TableSeat tab;
 
     public BookingBean() {
         if (!FacesContext.getCurrentInstance().isPostback()) {
@@ -53,6 +60,7 @@ public class BookingBean implements Serializable {
                 this.capacity = p.getCapacity();
                 this.time = p.getTimetable();
                 this.date = p.getDate();
+                this.tab = p.getTab();
             }
         }
     }
@@ -70,6 +78,7 @@ public class BookingBean implements Serializable {
         p.setTimetable(this.time);
         p.setDate(this.date);
         p.setPhone(this.phone);
+        p.setTab(this.tab);
 
         if (bookService.addOrSaveBooking(p) == true) {
             return "reservations?faces-redirect=true";
@@ -89,6 +98,10 @@ public class BookingBean implements Serializable {
         return bookings;
     }
 
+    public List<PaymentDetail> getPayment() {
+        return payService.getPayments();
+    }
+
     public List<Booking> getSelects() {
         List<Booking> selects = selectSerice.callStore();
         return selects;
@@ -100,6 +113,10 @@ public class BookingBean implements Serializable {
 
     public List<Timetable> getTimetable() {
         return timeService.getTimetable();
+    }
+
+    public List<TableSeat> getTabs() {
+        return tabService.getTabs();
     }
 
     public void onDateSelect(SelectEvent<Date> event) {
@@ -168,6 +185,14 @@ public class BookingBean implements Serializable {
 
     public void setCapacity(Capacity capacity) {
         this.capacity = capacity;
+    }
+
+    public TableSeat getTab() {
+        return tab;
+    }
+
+    public void setTab(TableSeat tab) {
+        this.tab = tab;
     }
 
 }

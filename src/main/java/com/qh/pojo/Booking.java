@@ -33,6 +33,14 @@ public class Booking implements Serializable {
     @JoinColumn(name = "time_id")
     private Timetable timetable;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "od_id")
+    private PaymentDetail od;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tab_id")
+    private TableSeat tab;
+
     public int getId() {
         return id;
     }
@@ -87,6 +95,22 @@ public class Booking implements Serializable {
 
     public void setTimetable(Timetable timetable) {
         this.timetable = timetable;
+    }
+
+    public TableSeat getTab() {
+        return tab;
+    }
+
+    public void setTab(TableSeat tab) {
+        this.tab = tab;
+    }
+
+    public PaymentDetail getOd() {
+        return od;
+    }
+
+    public void setOd(PaymentDetail od) {
+        this.od = od;
     }
 
 }

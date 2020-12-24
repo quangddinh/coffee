@@ -52,6 +52,10 @@
                         #{booking.phone}
                 </h:column>
                 <h:column >
+                    <f:facet name="header"> #{pMsg['booking.tab']} </f:facet>
+                        #{booking.tab.name}
+                </h:column>
+                <h:column >
                     <f:facet name="header"></f:facet>
                     <h:form >
                         <h:link value="#{pMsg['products.update']}"
@@ -63,7 +67,7 @@
                         |
                         <h:commandLink value="#{pMsg['products.delete']}">
                             <f:ajax listener="#{bookingBean.deleteBooking(booking)}"
-                                    onevent="deleteSuccess"/>
+                                    render="@all"/>
                         </h:commandLink>
                     </h:form>
                 </h:column>
